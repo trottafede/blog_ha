@@ -1,0 +1,61 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="mb-3">
+          <img height="100%" width="100%" src="<%=articleInfo.image%>" alt="" />
+        </div>
+        <div class="mb-3">
+          <p>Author: <%=authorInfo.first_name%></p>
+        </div>
+        <div class="mb-3">
+          <p>Email: <%=authorInfo.email%></p>
+        </div>
+        <div class="mb-3">
+          <p>Nombre de autor: <%=authorInfo.author%></p>
+        </div>
+
+        <div class="mb-3">
+          <p>Creado: <%=articleInfo.createdAt.toLocaleDateString()%></p>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div>
+          <h1 class="text-center"><%= articleInfo.title %></h1>
+          <p class="article"><%= articleInfo.content %></p>
+        </div>
+      </div>
+
+      <section id="comentarios">
+        <div>
+          <h2>Comentarios</h2>
+        </div>
+        <div class="row">
+          <% commentInfo.forEach(element => { %>
+
+          <div class="col-sm-2">
+            <div>
+              <p>Usuario: <%= element.id %></p>
+            </div>
+          </div>
+          <div class="col-sm-10">
+            <div class="col-sm-12 mb-3">
+              <div><%= element.content.substring(0,900) %></div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+
+        <div class="mb-3">
+          <label for="comment" class="form-label">Ingrese su comentario</label>
+          <textarea
+            class="form-control"
+            id="comment"
+            name="comment"
+            rows="4"
+          ></textarea>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

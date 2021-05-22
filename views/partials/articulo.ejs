@@ -1,0 +1,22 @@
+<% articles.forEach(element => { %>
+<div class="col d-flex justify-content-center">
+  <div class="card">
+    <div class="img">
+      <img height="100%" width="100%" src="<%=element.image%>" alt="" />
+    </div>
+    <div class="card-body">
+      <a href="<%= `/article/`+element.id %> ">
+        <h5 class="card-title"><%= element.title %></h5>
+      </a>
+      <p class="card-text"><%= element.content.substring(0,200) %>...</p>
+    </div>
+
+    <div class="card-footer">
+      <small class="text-muted">
+        <%= element.createdAt.toDateString() %>
+      </small>
+      <small class="text-muted"> Por <%= element.author %> </small>
+    </div>
+  </div>
+</div>
+<% }) %>
